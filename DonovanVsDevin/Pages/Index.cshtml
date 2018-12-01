@@ -1,0 +1,49 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "PER Battle: Donovan Mitchell versus Devin Booker";
+}
+<div class="container-fluid">
+    <div class="row align-items-center text-center">
+        <div class="col-sm ribbon-protector" itemscope itemtype="http://schema.org/Person">
+            <h2 class="utah" itemprop="givenName">Donovan Mitchell</h2>
+            <a href="@Model.Donovan_URL" target="_blank" rel="noopener">
+                <img src="~/images/donovan.png" class="img-fluid" alt="Donovan" />
+            </a>
+            <h2 class="@Model.Donovan_Class">
+                <strong class="ribbon-content">@Model.Donovan_PER.ToString("F")</strong>
+            </h2>
+        </div>
+        <div class="col-sm-1">
+            <div id="ball">VS</div>
+        </div>
+        <div class="col-sm ribbon-protector" itemscope itemtype="http://schema.org/Person">
+            <h2 class="phoenix">Devin Booker</h2>
+            <a href="@Model.Devin_URL" target="_blank" rel="noopener">
+                <img src="~/images/devin.png" class="img-fluid" alt="Devin" />
+            </a>
+            <h2 class="@Model.Devin_Class">
+                <strong class="ribbon-content">@Model.Devin_PER.ToString("F")</strong>
+            </h2>
+        </div>
+    </div>
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+        <strong>Hello!</strong> This website is simply comparing the John Hollinger 
+        <a href="http://www.espn.com/nba/columns/story?columnist=hollinger_john&id=2850240" class="alert-link" target="_blank" rel="noopener" alt="Player Efficiency Rating">PER</a>
+        of Donovan Mitchell and Devin Booker for the current NBA season.
+        <br /><br />
+        Thank you, in no particular order, to:
+        <ul>
+            <li>The <a href="https://www.nba.com" class="alert-link" target="_blank" rel="noopener" alt="National Basketball Association">National Basketball Association</a></li>
+            <li><a href="https://www.espn.com" class="alert-link" target="_blank" rel="noopener" alt="ESPN">ESPN</a></li>
+            <li><a href="https://twitter.com/johnhollinger" class="alert-link" target="_blank" rel="noopener" alt="John Hollinger">John Hollinger</a></li>
+            <li><a href="https://twitter.com/spidadmitchell" class="alert-link" target="_blank" rel="noopener" alt="Donovan Mitchell">Donovan Mitchell</a> and the <a href="https://www.nba.com/jazz/" class="alert-link" target="_blank" rel="noopener" alt="Utah Jazz">Utah Jazz</a></li>
+            <li><a href="https://twitter.com/DevinBook" class="alert-link" target="_blank" rel="noopener" alt="Devin Booker">Devin Booker</a> and the <a href="https://www.nba.com/suns/" class="alert-link" target="_blank" rel="noopener" alt="Phoenix Suns">Phoenix Suns</a></li>
+            <li><a href="https://chriscoyier.net/" class="alert-link" target="_blank" rel="noopener" alt="Chris Coyier">Chris Coyier</a> for <a href="https://css-tricks.com/snippets/css/ribbon/" class="alert-link" target="_blank" rel="noopener" alt="CSS Ribbon">this nifty CSS ribbon</a></li>
+            <li><a href="https://twitter.com/gashenkov" class="alert-link" target="_blank" rel="noopener" alt="Vladimir Gashenko">Vladimir Gashenko</a> for <a href="https://codepen.io/gxash/pen/QNzKoj" class="alert-link" target="_blank" rel="noopener" alt="CSS Basketball">this cool basketball</a></li>
+        </ul>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</div>

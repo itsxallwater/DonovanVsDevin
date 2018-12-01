@@ -1,0 +1,152 @@
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.utah {
+    background-color: #F9A01B;
+    color: #002B5C;
+    border-bottom: 4px solid #00471B;
+}
+
+.phoenix {
+    background-color: #E56020;
+    color: #1D1160;
+    border-bottom: 4px solid #63727A;
+}
+
+.ribbon-loser {
+    font-size: 16px !important;
+    /* This ribbon is based on a 16px font side and a 24px vertical rhythm. I've used em's to position each element for scalability. If you want to use a different font size you may have to play with the position of the ribbon elements */
+    width: 50%;
+    position: relative;
+    background: #C70039;
+    color: #fff;
+    text-align: center;
+    padding: 1em 2em; /* Adjust to suit */
+    margin: 0.5em auto 3em; /* Based on 24px vertical rhythm. 48px bottom margin - normally 24 but the ribbon 'graphics' take up 24px themselves so we double it. */
+}
+
+.ribbon-winner {
+    font-size: 16px !important;
+    /* This ribbon is based on a 16px font side and a 24px vertical rhythm. I've used em's to position each element for scalability. If you want to use a different font size you may have to play with the position of the ribbon elements */
+    width: 50%;
+    position: relative;
+    background: #3DE053;
+    color: #fff;
+    text-align: center;
+    padding: 1em 2em; /* Adjust to suit */
+    margin: 0.5em auto 3em; /* Based on 24px vertical rhythm. 48px bottom margin - normally 24 but the ribbon 'graphics' take up 24px themselves so we double it. */
+}
+
+.ribbon-loser:before, .ribbon-loser:after {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: -1em;
+    border: 1.5em solid #95002B;
+    z-index: -1;
+}
+
+.ribbon-winner:before, .ribbon-winner:after {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: -1em;
+    border: 1.5em solid #2EA83E;
+    z-index: -1;
+}
+
+.ribbon-loser:before, .ribbon-winner:before {
+    left: -2em;
+    border-right-width: 1.5em;
+    border-left-color: transparent;
+}
+
+.ribbon-loser:after, .ribbon-winner:after {
+    right: -2em;
+    border-left-width: 1.5em;
+    border-right-color: transparent;
+}
+
+.ribbon-loser .ribbon-content:before, .ribbon-loser .ribbon-content:after {
+    content: "";
+    position: absolute;
+    display: block;
+    border-style: solid;
+    border-color: #64001C transparent transparent transparent;
+    bottom: -1em;
+}
+
+.ribbon-winner .ribbon-content:before, .ribbon-winner .ribbon-content:after {
+    content: "";
+    position: absolute;
+    display: block;
+    border-style: solid;
+    border-color: #1E702A transparent transparent transparent;
+    bottom: -1em;
+}
+
+.ribbon-loser .ribbon-content:before, .ribbon-winner .ribbon-content:before {
+    left: 0;
+    border-width: 1em 0 0 1em;
+}
+
+.ribbon-loser .ribbon-content:after, .ribbon-winner .ribbon-content:after {
+    right: 0;
+    border-width: 1em 1em 0 0;
+}
+
+.ribbon-protector {
+    position: relative;
+    z-index: 1;
+}
+
+#ball {
+    position: relative;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+#ball:after {
+    content: "";
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    background: url("../images/ball.svg");
+    position: absolute;
+    animation: rotate 2s infinite, back 1s infinite;
+    background-repeat: repeat;
+    background-size: cover;
+    animation-timing-function: linear;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes back {
+    0% {
+        background-position: top;
+    }
+
+    100% {
+        background-position: bottom;
+    }
+}
