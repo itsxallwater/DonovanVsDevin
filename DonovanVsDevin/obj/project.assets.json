@@ -12773,19 +12773,19 @@
   },
   "packageFolders": {
     "C:\\Users\\under\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\PF\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Source\\DonovanVsDevin\\DonovanVsDevin\\DonovanVsDevin.csproj",
+      "projectUniqueName": "C:\\Source\\Personal\\DonovanVsDevin\\DonovanVsDevin\\DonovanVsDevin.csproj",
       "projectName": "DonovanVsDevin",
-      "projectPath": "C:\\Source\\DonovanVsDevin\\DonovanVsDevin\\DonovanVsDevin.csproj",
+      "projectPath": "C:\\Source\\Personal\\DonovanVsDevin\\DonovanVsDevin\\DonovanVsDevin.csproj",
       "packagesPath": "C:\\Users\\under\\.nuget\\packages\\",
-      "outputPath": "C:\\Source\\DonovanVsDevin\\DonovanVsDevin\\obj\\",
+      "outputPath": "C:\\Source\\Personal\\DonovanVsDevin\\DonovanVsDevin\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\PF\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
         "C:\\Users\\under\\AppData\\Roaming\\NuGet\\NuGet.Config",
