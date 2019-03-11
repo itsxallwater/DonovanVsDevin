@@ -13,3 +13,4 @@ As it stands this is a simple repo with two projects:
 4. Mayyyyyyyyyyyyyybe allow specification of players.
 5. PERhaps look at other stats.
 6. Turn these damn TODOs into Issues.
+7. Maybe use Vue for this? I don't know, I love it so why not. Am I helping?
