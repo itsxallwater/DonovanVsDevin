@@ -1,18 +1,22 @@
 ﻿using System;
-using System.IO;
-using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Caching.Memory;
-using HtmlAgilityPack;
+using Microsoft.Extensions.Configuration;
 
 namespace DonovanVsDevin.Pages
 {
     public class IndexModel : PageModel
     {
         private readonly IMemoryCache _cache;
+        private static IConfiguration _config;
 
-        public string Donovan_URL = "http://www.espn.com/nba/player/stats/_/id/3908809/donovan-mitchell";
-        public string Devin_URL = "http://www.espn.com/nba/player/stats/_/id/3136193/devin-booker";
+        private static HttpClient _httpClient = new HttpClient();
+
+        private static string _perAPI = "https://donovanvsdevinstatsapi.azurewebsites.net/api/PER";
+        private static string _DonovanID = "3908809";
+        private static string _DevinID = "3136193";
 
         public string Donovan_Class { get; set; }
         public string Devin_Class { get; set; }
@@ -20,9 +24,10 @@ namespace DonovanVsDevin.Pages
         public double Donovan_PER { get; set; }
         public double Devin_PER { get; set; }
 
-        public IndexModel(IMemoryCache cache)
+        public IndexModel(IMemoryCache cache, IConfiguration config)
         {
             _cache = cache;
+            _config = config;
         }
 
         public void OnGet()
@@ -33,7 +38,7 @@ namespace DonovanVsDevin.Pages
                 Donovan_PER = donovanPER;
             else
             {
-                Donovan_PER = LoadDonovan();
+                Donovan_PER = LoadPER(_DonovanID).Result;
                 _cache.Set<double>("donovanPER", Donovan_PER, new DateTimeOffset(DateTime.Today.AddHours(6)));
             }
 
@@ -43,7 +48,7 @@ namespace DonovanVsDevin.Pages
                 Devin_PER = devinPER;
             else
             {
-                Devin_PER = LoadDevin();
+                Devin_PER = LoadPER(_DevinID).Result;
                 _cache.Set<double>("devinPER", Devin_PER, new DateTimeOffset(DateTime.Today.AddHours(6)));
             }
 
@@ -60,103 +65,15 @@ namespace DonovanVsDevin.Pages
             }
         }
 
-        public double LoadDonovan()
+        public static async Task<double> LoadPER(string WhatID)
         {
-            double donovanPER = -1.1;
-            var position = -1;
+            var result = -1.1;
+            var response = await _httpClient.GetAsync(_perAPI + "?code=" + _config["perCode"] + "&playerId=" + WhatID);
+            var content = await response.Content.ReadAsStringAsync();
 
-            var uriDonovan = new Uri(Donovan_URL);
-            var reqDonovan = HttpWebRequest.Create(uriDonovan);
-            reqDonovan.Method = WebRequestMethods.Http.Get;
+            var parseResponse = double.TryParse(content, out result);
 
-            var respDonovan = reqDonovan.GetResponse();
-            var readDonovan = new StreamReader(respDonovan.GetResponseStream());
-            var contentDonovan = readDonovan.ReadToEnd();
-            respDonovan.Close();
-
-            var donovanDoc = new HtmlDocument();
-            donovanDoc.LoadHtml(contentDonovan);
-
-            var donovanTable = donovanDoc.DocumentNode.SelectSingleNode("//table[contains(@class, 'header-stats')]");
-
-            while (donovanPER <= 0)
-            {
-                for (var i = 0; i < donovanTable.ChildNodes.Count; i++)
-                {
-                    var child = donovanTable.ChildNodes[i];
-                    if (position > -1)
-                    {
-                        var donovanParse = double.TryParse(child.ChildNodes[position].InnerText, out donovanPER);
-                        position = -1;
-                        break;
-                    }
-                    else
-                    {
-
-                        for (var j = 0; j < child.ChildNodes.Count; j++)
-                        {
-                            var grandChild = child.ChildNodes[j];
-
-                            if (grandChild.InnerHtml.Equals("PER"))
-                            {
-                                position = j;
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-
-            return donovanPER;
-        }
-
-        public double LoadDevin()
-        {
-            double devinPER = -1.1;
-            var position = -1;
-
-            var uriDevin = new Uri(Devin_URL);
-            var reqDevin = HttpWebRequest.Create(uriDevin);
-            reqDevin.Method = WebRequestMethods.Http.Get;
-
-            var respDevin = reqDevin.GetResponse();
-            var readDevin = new StreamReader(respDevin.GetResponseStream());
-            var contentDevin = readDevin.ReadToEnd();
-            respDevin.Close();
-
-            var devinDoc = new HtmlDocument();
-            devinDoc.LoadHtml(contentDevin);
-
-            var devinTable = devinDoc.DocumentNode.SelectSingleNode("//table[contains(@class, 'header-stats')]");
-
-            while (devinPER <= 0)
-            {
-                for (var i = 0; i < devinTable.ChildNodes.Count; i++)
-                {
-                    var child = devinTable.ChildNodes[i];
-                    if (position > -1)
-                    {
-                        var devinParse = double.TryParse(child.ChildNodes[position].InnerText, out devinPER);
-                        break;
-                    }
-                    else
-                    {
-
-                        for (var j = 0; j < child.ChildNodes.Count; j++)
-                        {
-                            var grandChild = child.ChildNodes[j];
-
-                            if (grandChild.InnerHtml.Equals("PER"))
-                            {
-                                position = j;
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-
-            return devinPER;
+            return result;
         }
     }
 }
