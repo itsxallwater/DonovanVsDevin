@@ -51,35 +51,8 @@ namespace Stats_API
             var document = new HtmlDocument();
             document.LoadHtml(content);
 
-            var table = document.DocumentNode.SelectSingleNode("//table[contains(@class, 'header-stats')]");
-
-            while (result <= 0)
-            {
-                for (var i = 0; i < table.ChildNodes.Count; i++)
-                {
-                    var child = table.ChildNodes[i];
-                    if (position > -1)
-                    {
-                        var parsePER = double.TryParse(child.ChildNodes[position].InnerText, out result);
-                        position = -1;
-                        break;
-                    }
-                    else
-                    {
-
-                        for (var j = 0; j < child.ChildNodes.Count; j++)
-                        {
-                            var grandChild = child.ChildNodes[j];
-
-                            if (grandChild.InnerHtml.Equals("PER"))
-                            {
-                                position = j;
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
+            var divPER = document.DocumentNode.SelectSingleNode("//div[contains(@aria-label, 'Player Efficiency Rating')]");
+            var parsePER = double.TryParse(divPER.ParentNode.LastChild.InnerText, out result);
 
             return result;
         }
