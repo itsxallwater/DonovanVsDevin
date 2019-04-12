@@ -52,7 +52,7 @@ namespace Stats_API
             document.LoadHtml(content);
 
             var divPER = document.DocumentNode.SelectSingleNode("//div[contains(@aria-label, 'Player Efficiency Rating')]");
-            var parsePER = double.TryParse(divPER.ParentNode.LastChild.InnerText, out result);
+            var parsePER = double.TryParse(divPER.ParentNode.ChildNodes[1].InnerText, out result);
 
             return result;
         }
