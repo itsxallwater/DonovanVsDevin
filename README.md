@@ -14,3 +14,4 @@ As it stands this is a simple repo with two projects:
 5. PERhaps look at other stats.
 6. Turn these damn TODOs into Issues.
 7. Maybe use Vue for this? I don't know, I love it so why not. Am I helping?
+8. Ricky Rubio played with Donovan and now he's gonna play with Devin. Maybe he is interesting to add into the mix?!?
