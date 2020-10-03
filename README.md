@@ -7,6 +7,8 @@ As it stands this is a simple repo with two projects:
 
 ## Todos
 
+- [ ] Lightouse testing
+- [ ] Redeploy to Azure
 - [ ] Update the damn readme!
 - [ ] Move PER values to a DB and update API call.
 - [ ] Add historical matchups between Booker and Mitchell.
