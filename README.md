@@ -1,17 +1,18 @@
-# DonovanVsDevin
+# Donovan vs Devin
 
 As it stands this is a simple repo with two projects:
 
-1. The titular project, a Razor pages .NET Core website.
+1. The titular project, a Vue.js static site.
 2. Azure Functions to encapsulate an API for the PER lookup (thanks ESPN).
 
-## TODOs
+## Todos
 
-1. Write the damn readme!
-2. Add historical matchups between Booker and Mitchell.
-3. Parse daily PER values into a database and add graphs!
-4. Mayyyyyyyyyyyyyybe allow specification of players.
-5. PERhaps look at other stats.
-6. Turn these damn TODOs into Issues.
-7. Maybe use Vue for this? I don't know, I love it so why not. Am I helping?
-8. Ricky Rubio played with Donovan and now he's gonna play with Devin. Maybe he is interesting to add into the mix?!?
+- [ ] Update the damn readme!
+- [ ] Move PER values to a DB and update API call.
+- [ ] Add historical matchups between Booker and Mitchell.
+- [ ] Add graphs!
+- [ ] Mayyyyyyyyyyyyyybe allow specification of players.
+- [ ] PERhaps look at other stats.
+- [ ] Turn these damn TODOs into Issues.
+- [ ] Ricky Rubio played with Donovan and now he's playing with Devin. Maybe he is interesting to add into the mix?!?
+- [ ] Add in season by season comps.
