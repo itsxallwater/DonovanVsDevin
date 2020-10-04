@@ -1,11 +1,22 @@
 # Donovan vs Devin
 
+![Azure Static Web Apps CI/CD](https://github.com/itsxallwater/ItsAllWater/workflows/Azure%20Static%20Web%20Apps%20CI/CD/badge.svg)
+
+## Description
+
 As it stands this is a simple repo with two projects:
 
-1. The titular project, a Vue.js static site.
-2. Azure Functions to encapsulate an API for the PER lookup (thanks ESPN).
+1. `DonovanVsDevin`, a Vue.js static site.
+2. `Stats API`, an Azure Functions project to create an API for the PER lookup (thanks ESPN).
 
-## Todos
+The site was built using:
+
+1. [Vue.js](https://vuejs.org)
+2. [Tailwind CSS](https://tailwindcss.com)
+3. [Azure](https://azure.microsoft.com)
+4. [Vite](https://github.com/vitejs/vite)
+
+## TODOs
 
 - [ ] Lightouse testing
 - [ ] Redeploy to Azure
