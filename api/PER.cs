@@ -37,7 +37,6 @@ namespace Stats_API
         private static double FetchPER(string WhatPlayerID)
         {
             var result = -1.1;
-            var position = -1;
 
             var uri = new Uri(_playerURL + WhatPlayerID);
             var request = HttpWebRequest.Create(uri);
