@@ -2,9 +2,9 @@
   "name": "donovan-vs-devin",
   "version": "0.0.0",
   "scripts": {
-    "compile": "tsc -w",
-    "dev": "vite",
-    "build": "vite build"
+    "compile": "tsc",
+    "dev": "tsc && vite",
+    "build": "tsc && vite build"
   },
   "dependencies": {
     "axios": "^0.20.0",
