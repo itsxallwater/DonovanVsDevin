@@ -18,7 +18,11 @@ export default class StatsService {
 
   // API Client Calls
   async getPER(id: Number) {
-    return this.fetch<any>(this.apiClient, `PER?playerId=${id}`, this.apiKey);
+    return this.fetch<any>(
+      this.apiClient,
+      `/api/PER?playerId=${id}`,
+      this.apiKey
+    );
   }
 
   // Helpers

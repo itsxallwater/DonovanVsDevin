@@ -1,6 +1,9 @@
 module.exports = {
-  purge: {
-    enabled: true,
-    content: ["./index.html", "./src/**/*.vue", "./src/**/*.js"],
+  // purge: {
+  //   enabled: true,
+  //   content: ["./index.html", "./src/**/*.vue", "./src/**/*.js"],
+  // },
+  future: {
+    purgeLayersByDefault: true,
   },
 };
