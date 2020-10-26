@@ -265,3 +265,5 @@ __pycache__/
 .env
 .DS_Store
 dist
+main.js
+src/services/*.js
