@@ -6,8 +6,8 @@
 
 As it stands this is a simple repo with two projects:
 
-1. `DonovanVsDevin`, a Vue.js static site.
-2. `Stats API`, an Azure Functions project to create an API for the PER lookup (thanks ESPN).
+1. `api`, an Azure Functions project to create an API for the PER lookup (thanks ESPN).
+2. `src`, a Vue.js static site.
 
 The site was built using:
 
@@ -19,8 +19,8 @@ The site was built using:
 ## TODOs
 
 - [ ] Lightouse testing
-- [ ] Redeploy to Azure
-- [ ] Update the damn readme!
+- [x] Redeploy to Azure
+- [x] Update the damn readme!
 - [ ] Move PER values to a DB and update API call.
 - [ ] Add historical matchups between Booker and Mitchell.
 - [ ] Add graphs!
