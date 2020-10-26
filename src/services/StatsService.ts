@@ -2,10 +2,8 @@ import axios, { AxiosInstance } from "axios";
 
 export default class StatsService {
   private readonly apiClient: AxiosInstance;
-  private readonly apiKey: string;
 
-  constructor(apiServiceUrl: string, apiServiceKey: string) {
-    this.apiKey = apiServiceKey;
+  constructor(apiServiceUrl: string) {
     this.apiClient = axios.create({
       baseURL: apiServiceUrl,
       withCredentials: false,
@@ -18,23 +16,15 @@ export default class StatsService {
 
   // API Client Calls
   async getPER(id: Number) {
-    return this.fetch<any>(
-      this.apiClient,
-      `/api/PER?playerId=${id}`,
-      this.apiKey
-    );
+    return this.fetch<any>(this.apiClient, `/api/PER?playerId=${id}`);
   }
 
   // Helpers
-  private async fetch<T>(
-    client: AxiosInstance,
-    endpoint: string,
-    token: string
-  ) {
+  private async fetch<T>(client: AxiosInstance, endpoint: string) {
     return new Promise((resolve, reject) => {
       client
         // .get<T>(endpoint, { headers: { Authorization: `Bearer ${token}` } })
-        .get<T>(`${endpoint}&code=${token}`)
+        .get<T>(endpoint)
         .then((resp) => resolve(resp.data))
         .catch((error) => reject(error));
     });

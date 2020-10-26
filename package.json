@@ -1,5 +1,7 @@
 {
   "name": "donovan-vs-devin",
+  "description": "NBA PER Battle: Donovan Mitchell vs Devin Booker. Taking a look at current the Hollinger PER for each of these players this season.",
+  "license": "MIT",
   "version": "2.0.0",
   "repository": "https://github.com/itsxallwater/DonovanVsDevin",
   "scripts": {
